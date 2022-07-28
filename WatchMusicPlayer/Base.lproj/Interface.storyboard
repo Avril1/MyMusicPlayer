@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17034"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchMusicPlayer" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Song" textAlignment="center" numberOfLines="2" id="1Zr-Ok-wlE">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                        <group width="1" alignment="left" id="zGB-HS-qWQ">
+                            <items>
+                                <label alignment="center" text="artist" id="yPn-R0-bQ8">
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="GLX-DD-2Tz">
+                            <items>
+                                <group width="1" alignment="left" id="Gd7-Mi-AL0">
+                                    <items>
+                                        <button width="40" height="40" alignment="right" verticalAlignment="bottom" backgroundImage="forward.fill" catalog="system" id="38t-gP-kxn">
+                                            <color key="backgroundColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="playNextSong" destination="AgC-eL-Hgc" id="swW-Qn-4tH"/>
+                                            </connections>
+                                        </button>
+                                        <button width="40" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="pause.fill" catalog="system" id="2QT-cq-jDr">
+                                            <color key="backgroundColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="pauseSong" destination="AgC-eL-Hgc" id="jMR-iL-tU3"/>
+                                            </connections>
+                                        </button>
+                                        <button width="40" height="40" alignment="left" backgroundImage="backward.fill" catalog="system" id="FUT-fn-vpd">
+                                            <color key="backgroundColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="playLastSong" destination="AgC-eL-Hgc" id="sSU-K1-yVI"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="artist" destination="yPn-R0-bQ8" id="0IE-db-Bzy"/>
+                        <outlet property="playButton" destination="2QT-cq-jDr" id="8xV-P9-IYf"/>
+                        <outlet property="song" destination="1Zr-Ok-wlE" id="lsN-ru-zP1"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchMusicPlayer" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="WatchMusicPlayer" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backward.fill" catalog="system" width="128" height="77"/>
+        <image name="forward.fill" catalog="system" width="128" height="77"/>
+        <image name="pause.fill" catalog="system" width="119" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
